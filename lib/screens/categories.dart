@@ -61,12 +61,11 @@ class _CategoryScreenState extends State<CategoryScreen>
   Widget build(BuildContext context) {
     return AnimatedBuilder(
       animation: _animationController,
-      builder: (context, widget) => SlideTransition(
-        position: Tween(
-          begin: const Offset(0, 1),
-          end: const Offset(0, 0),
-        ).animate(CurvedAnimation(
-            parent: _animationController, curve: Easing.emphasizedAccelerate)),
+      builder: (context, widget) => ScaleTransition(
+        scale: Tween(begin: 0.0, end: 1.0).animate(
+          CurvedAnimation(
+              parent: _animationController, curve: Easing.emphasizedAccelerate),
+        ),
         child: widget,
       ),
       child: GridView(
